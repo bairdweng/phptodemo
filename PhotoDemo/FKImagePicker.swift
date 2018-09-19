@@ -15,8 +15,10 @@ class FKImagePicker: NSObject,UIImagePickerControllerDelegate,UINavigationContro
     
         let pick = UIImagePickerController()
         pick.sourceType = .photoLibrary
-        pick.delegate = self;
-        vc.present(pick, animated: true, completion: nil)
+        vc.present(pick, animated: true) {
+            pick.delegate = self;
+        }
+        
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         print("---------------",info)
